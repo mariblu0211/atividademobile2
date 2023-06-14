@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APLICAÇÃO DE FILTER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Aplicação do Filter</h1>
+
+    <label for="numeros">Insira uma lista de números separados por vírgula:</label>
+    <input type="text" id="numeros">
+
+    <button onclick="filtrarNumerosPares()">Filtar números pares</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        //Função para filtrar números pares
+        function filtrarNumerosPares() {
+            //Obter valores do input
+            var numeros = document.getElementById("numeros").value;
+
+            //Converter a string de números em um array
+            numeros = numeros.split(",");
+
+            //Filtrar apenas os números pares
+           var numerosPares = numeros.filter(function(numero) {
+            return numero % 2 === 0;
+           });
+           
+
+           //Exibir os números pares da div de resultado
+           document.getElementById("resultado").innerHTML = "Números pares: " + numerosPares.join(",");
+        }
+    </script>
+
+</body>
+</html>
